@@ -1,6 +1,6 @@
 import '/backend/sqlite/sqlite_manager.dart';
-import '/components/common/bottom_bar_heading_component/bottom_bar_heading_component_widget.dart';
-import '/components/common/bottom_bar_top_indicator_component/bottom_bar_top_indicator_component_widget.dart';
+import '/components/bottom_bar_heading_component/bottom_bar_heading_component_widget.dart';
+import '/components/bottom_bar_top_indicator_component/bottom_bar_top_indicator_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';

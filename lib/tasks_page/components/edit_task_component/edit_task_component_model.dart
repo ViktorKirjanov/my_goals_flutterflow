@@ -1,11 +1,10 @@
-import '/components/common/bottom_bar_heading_component/bottom_bar_heading_component_widget.dart';
-import '/components/common/bottom_bar_top_indicator_component/bottom_bar_top_indicator_component_widget.dart';
+import '/components/bottom_bar_heading_component/bottom_bar_heading_component_widget.dart';
+import '/components/bottom_bar_top_indicator_component/bottom_bar_top_indicator_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'create_task_component_widget.dart' show CreateTaskComponentWidget;
+import 'edit_task_component_widget.dart' show EditTaskComponentWidget;
 import 'package:flutter/material.dart';
 
-class CreateTaskComponentModel
-    extends FlutterFlowModel<CreateTaskComponentWidget> {
+class EditTaskComponentModel extends FlutterFlowModel<EditTaskComponentWidget> {
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();

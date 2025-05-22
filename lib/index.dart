@@ -1,3 +1,5 @@
 // Export pages
-export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
-export '/pages/task_page/task_page_widget.dart' show TaskPageWidget;
+export '/goals_page/goals_page/goals_page_widget.dart' show GoalsPageWidget;
+export '/tasks_page/task_page/task_page_widget.dart' show TaskPageWidget;
+export '/settings_page/settings_page/settings_page_widget.dart'
+    show SettingsPageWidget;

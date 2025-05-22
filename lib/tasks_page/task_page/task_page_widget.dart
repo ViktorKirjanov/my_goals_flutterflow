@@ -1,10 +1,10 @@
 import '/backend/sqlite/sqlite_manager.dart';
-import '/components/create_task_component/create_task_component_widget.dart';
-import '/components/edit_task_component/edit_task_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/tasks_page/components/create_task_component/create_task_component_widget.dart';
+import '/tasks_page/components/edit_task_component/edit_task_component_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -1,32 +1,32 @@
 import '/backend/sqlite/sqlite_manager.dart';
-import '/components/create_goal_component/create_goal_component_widget.dart';
-import '/components/edit_goal_component/edit_goal_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/goals_page/components/create_goal_component/create_goal_component_widget.dart';
+import '/goals_page/components/edit_goal_component/edit_goal_component_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
+import 'goals_page_model.dart';
+export 'goals_page_model.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({super.key});
+class GoalsPageWidget extends StatefulWidget {
+  const GoalsPageWidget({super.key});
 
-  static String routeName = 'HomePage';
-  static String routePath = '/homePage';
+  static String routeName = 'GoalsPage';
+  static String routePath = '/goalsPage';
 
   @override
-  State<HomePageWidget> createState() => _HomePageWidgetState();
+  State<GoalsPageWidget> createState() => _GoalsPageWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget>
+class _GoalsPageWidgetState extends State<GoalsPageWidget>
     with TickerProviderStateMixin {
-  late HomePageModel _model;
+  late GoalsPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -35,7 +35,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePageModel());
+    _model = createModel(context, () => GoalsPageModel());
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(

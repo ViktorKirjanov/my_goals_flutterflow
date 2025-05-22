@@ -1,29 +1,35 @@
 import '/backend/sqlite/sqlite_manager.dart';
-import '/components/common/bottom_bar_heading_component/bottom_bar_heading_component_widget.dart';
-import '/components/common/bottom_bar_top_indicator_component/bottom_bar_top_indicator_component_widget.dart';
+import '/components/bottom_bar_heading_component/bottom_bar_heading_component_widget.dart';
+import '/components/bottom_bar_top_indicator_component/bottom_bar_top_indicator_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'create_task_component_model.dart';
-export 'create_task_component_model.dart';
+import 'edit_task_component_model.dart';
+export 'edit_task_component_model.dart';
 
-class CreateTaskComponentWidget extends StatefulWidget {
-  const CreateTaskComponentWidget({
+class EditTaskComponentWidget extends StatefulWidget {
+  const EditTaskComponentWidget({
     super.key,
     required this.goalId,
-  });
+    required this.taskId,
+    required this.title,
+    String? description,
+  }) : this.description = description ?? ' ';
 
   final int? goalId;
+  final int? taskId;
+  final String? title;
+  final String description;
 
   @override
-  State<CreateTaskComponentWidget> createState() =>
-      _CreateTaskComponentWidgetState();
+  State<EditTaskComponentWidget> createState() =>
+      _EditTaskComponentWidgetState();
 }
 
-class _CreateTaskComponentWidgetState extends State<CreateTaskComponentWidget> {
-  late CreateTaskComponentModel _model;
+class _EditTaskComponentWidgetState extends State<EditTaskComponentWidget> {
+  late EditTaskComponentModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -34,12 +40,14 @@ class _CreateTaskComponentWidgetState extends State<CreateTaskComponentWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateTaskComponentModel());
+    _model = createModel(context, () => EditTaskComponentModel());
 
-    _model.titleTextFieldTextController ??= TextEditingController();
+    _model.titleTextFieldTextController ??=
+        TextEditingController(text: widget.title);
     _model.titleTextFieldFocusNode ??= FocusNode();
 
-    _model.descriptionTextFieldTextController ??= TextEditingController();
+    _model.descriptionTextFieldTextController ??=
+        TextEditingController(text: widget.description);
     _model.descriptionTextFieldFocusNode ??= FocusNode();
   }
 
@@ -86,29 +94,19 @@ class _CreateTaskComponentWidgetState extends State<CreateTaskComponentWidget> {
                       model: _model.bottomBarHeadingComponentModel,
                       updateCallback: () => safeSetState(() {}),
                       child: BottomBarHeadingComponentWidget(
-                        title: 'Create Task',
+                        title: 'Edit Task',
                       ),
                     ),
-                    Container(
-                      width: 200.0,
-                      child: TextFormField(
-                        controller: _model.titleTextFieldTextController,
-                        focusNode: _model.titleTextFieldFocusNode,
-                        autofocus: false,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          isDense: true,
-                          labelStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
+                    TextFormField(
+                      controller: _model.titleTextFieldTextController,
+                      focusNode: _model.titleTextFieldFocusNode,
+                      autofocus: false,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  font: GoogleFonts.inter(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontWeight,
@@ -116,18 +114,18 @@ class _CreateTaskComponentWidgetState extends State<CreateTaskComponentWidget> {
                                         .labelMedium
                                         .fontStyle,
                                   ),
-                          hintText: 'TextField',
-                          hintStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                        hintText: 'TextField',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  font: GoogleFonts.inter(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontWeight,
@@ -135,45 +133,45 @@ class _CreateTaskComponentWidgetState extends State<CreateTaskComponentWidget> {
                                         .labelMedium
                                         .fontStyle,
                                   ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).secondary,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).secondary,
+                            width: 1.0,
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.inter(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                              letterSpacing: 0.0,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .fontWeight,
@@ -181,10 +179,17 @@ class _CreateTaskComponentWidgetState extends State<CreateTaskComponentWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                        cursorColor: FlutterFlowTheme.of(context).primaryText,
-                        validator: _model.titleTextFieldTextControllerValidator
-                            .asValidator(context),
-                      ),
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                      cursorColor: FlutterFlowTheme.of(context).primaryText,
+                      validator: _model.titleTextFieldTextControllerValidator
+                          .asValidator(context),
                     ),
                     Container(
                       width: 200.0,
@@ -286,49 +291,88 @@ class _CreateTaskComponentWidgetState extends State<CreateTaskComponentWidget> {
                             .asValidator(context),
                       ),
                     ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        if (_model.formKey.currentState == null ||
-                            !_model.formKey.currentState!.validate()) {
-                          return;
-                        }
-                        await SQLiteManager.instance.insertTask(
-                          goalId: widget.goalId!,
-                          title: _model.titleTextFieldTextController.text,
-                          description:
-                              _model.descriptionTextFieldTextController.text,
-                          created: getCurrentTimestamp.secondsSinceEpoch,
-                        );
-                        await SQLiteManager.instance.incrementGoalTasks(
-                          goalId: widget.goalId!,
-                        );
-                        Navigator.pop(context);
-                      },
-                      text: 'Create',
-                      options: FFButtonOptions(
-                        height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FFButtonWidget(
+                          onPressed: () async {
+                            await SQLiteManager.instance.deleteTask(
+                              taskId: widget.taskId!,
+                            );
+                            await SQLiteManager.instance.decrementGoalTasks(
+                              goalId: widget.goalId!,
+                            );
+                            Navigator.pop(context);
+                          },
+                          text: 'Delete',
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).accent1,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
                                   font: GoogleFonts.interTight(
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontStyle,
                                   ),
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .fontStyle,
                                 ),
-                        elevation: 0.0,
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        Expanded(
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await SQLiteManager.instance.updateTask(
+                                taskId: widget.taskId!,
+                                title: _model.titleTextFieldTextController.text,
+                                description: _model
+                                    .descriptionTextFieldTextController.text,
+                              );
+                              Navigator.pop(context);
+                            },
+                            text: 'Edit',
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        ),
+                      ].divide(SizedBox(width: 12.0)),
                     ),
                   ]
                       .divide(SizedBox(height: 12.0))

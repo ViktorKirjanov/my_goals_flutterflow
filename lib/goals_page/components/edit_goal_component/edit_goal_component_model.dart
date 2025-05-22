@@ -1,12 +1,10 @@
-import '/components/common/bottom_bar_heading_component/bottom_bar_heading_component_widget.dart';
-import '/components/common/bottom_bar_top_indicator_component/bottom_bar_top_indicator_component_widget.dart';
+import '/components/bottom_bar_heading_component/bottom_bar_heading_component_widget.dart';
+import '/components/bottom_bar_top_indicator_component/bottom_bar_top_indicator_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
-import 'create_goal_component_widget.dart' show CreateGoalComponentWidget;
+import 'edit_goal_component_widget.dart' show EditGoalComponentWidget;
 import 'package:flutter/material.dart';
 
-class CreateGoalComponentModel
-    extends FlutterFlowModel<CreateGoalComponentWidget> {
+class EditGoalComponentModel extends FlutterFlowModel<EditGoalComponentWidget> {
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
@@ -33,9 +31,6 @@ class CreateGoalComponentModel
   TextEditingController? descriptionTextFieldTextController;
   String? Function(BuildContext, String?)?
       descriptionTextFieldTextControllerValidator;
-  // State field(s) for StatusDropDown widget.
-  String? statusDropDownValue;
-  FormFieldController<String>? statusDropDownValueController;
 
   @override
   void initState(BuildContext context) {
